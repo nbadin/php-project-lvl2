@@ -19,4 +19,8 @@ function gendiff($firstFilepath, $secondFilepath, $format = 'stylish')
     if ($format === 'plain') {
         return plain($gendiff);
     }
+
+    if ($format === 'json') {
+        return json_encode($gendiff, JSON_PRETTY_PRINT);
+    }
 }
