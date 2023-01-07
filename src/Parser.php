@@ -1,6 +1,6 @@
 <?php
 
-namespace Gendiff;
+namespace Differ;
 
 use InvalidArgumentException;
 use Symfony\Component\Yaml\Yaml;

@@ -1,11 +1,11 @@
 <?php
 
-namespace Gendiff;
+namespace Differ;
 
-use function Gendiff\parser;
-use function Gendiff\generateAst;
-use function Gendiff\Formatters\stylish;
-use function Gendiff\Formatters\plain;
+use function Differ\parser;
+use function Differ\generateAst;
+use function Differ\Formatters\stylish;
+use function Differ\Formatters\plain;
 
 function gendiff($firstFilepath, $secondFilepath, $format = 'stylish')
 {

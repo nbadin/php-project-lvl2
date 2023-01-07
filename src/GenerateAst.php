@@ -1,6 +1,6 @@
 <?php
 
-namespace Gendiff;
+namespace Differ;
 
 function generateAst($firstFile, $secondFile)
 {

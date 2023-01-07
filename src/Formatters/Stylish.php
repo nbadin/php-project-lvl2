@@ -1,6 +1,6 @@
 <?php
 
-namespace Gendiff\Formatters;
+namespace Differ\Formatters;
 
 function stylish($ast, $depth = 0): string
 {

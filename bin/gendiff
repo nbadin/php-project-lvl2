@@ -3,7 +3,7 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use function Gendiff\gendiff;
+use function Differ\gendiff;
 
 const DOCOPT_VERSION = '0.1';
 
