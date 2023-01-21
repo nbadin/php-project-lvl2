@@ -64,7 +64,7 @@ function stylish(array $ast, int $depth = 0): string
     return implode("\n", ['{', ...$result, "{$indent}}"]);
 }
 
-function renderValue(bool|null $value): string
+function renderValue(mixed $value): mixed
 {
     if ($value === true) {
         return 'true';
