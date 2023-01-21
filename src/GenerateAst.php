@@ -2,21 +2,21 @@
 
 namespace Differ;
 
-function generateAst($firstFile, $secondFile)
+function getAst($firstFile, $secondFile)
 {
     $allKeys = array_values(array_unique([...array_keys($firstFile), ...array_keys($secondFile)]));
     asort($allKeys);
     return array_map(function ($key) use ($firstFile, $secondFile) {
         if (!array_key_exists($key, $firstFile)) {
             $value = is_array($secondFile[$key])
-                ? generateAst($secondFile[$key], $secondFile[$key])
+                ? getAst($secondFile[$key], $secondFile[$key])
                 : $secondFile[$key];
             return ['key' => $key, 'status' => 'added', 'value' => $value];
         }
 
         if (!array_key_exists($key, $secondFile)) {
             $value = is_array($firstFile[$key])
-            ? generateAst($firstFile[$key], $firstFile[$key])
+            ? getAst($firstFile[$key], $firstFile[$key])
             : $firstFile[$key];
 
             return [
@@ -30,17 +30,17 @@ function generateAst($firstFile, $secondFile)
             return [
                 'key' => $key,
                 'status' => 'hasChildren',
-                'value' => array_values(generateAst(($firstFile[$key]), ($secondFile[$key])))
+                'value' => array_values(getAst(($firstFile[$key]), ($secondFile[$key])))
             ];
         }
 
         if ($firstFile[$key] !== $secondFile[$key]) {
             $oldValue = is_array($firstFile[$key])
-                ? generateAst($firstFile[$key], $firstFile[$key])
+                ? getAst($firstFile[$key], $firstFile[$key])
                 : $firstFile[$key];
 
             $newValue = is_array($secondFile[$key])
-                ? generateAst($secondFile[$key], $secondFile[$key])
+                ? getAst($secondFile[$key], $secondFile[$key])
                 : $secondFile[$key];
 
             return [

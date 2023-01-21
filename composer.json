@@ -3,7 +3,7 @@
     "description": "Compare two json or yaml files",
     "autoload": {
         "psr-4": {
-            "Hexlet\\Code\\": "src/"
+            "Differ\\": "src/"
         },
         "files": [
             "src/Gendiff.php",

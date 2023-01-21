@@ -1,17 +1,17 @@
 <?php
 
-namespace Differ;
+namespace Differ\Differ;
 
-use function Differ\parser;
-use function Differ\generateAst;
-use function Differ\Formatters\stylish;
-use function Differ\Formatters\plain;
+use function Differ\Parser\parser;
+use function Differ\getAst;
+use function Differ\Formatters\Sylish\stylish;
+use function Differ\Formatters\Plain\plain;
 
 function gendiff($firstFilepath, $secondFilepath, $format = 'stylish')
 {
     $firstFileContent = parser($firstFilepath);
     $secondFileContent = parser($secondFilepath);
-    $gendiff = generateAst($firstFileContent, $secondFileContent);
+    $gendiff = getAst($firstFileContent, $secondFileContent);
     if ($format === 'stylish') {
         return stylish($gendiff);
     }
