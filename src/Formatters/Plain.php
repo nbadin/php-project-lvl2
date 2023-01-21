@@ -9,7 +9,7 @@ function formatterOfType(array|string|bool|null|int $value): string
     if (is_array($value)) {
         return '[complex value]';
     }
-    
+
     if ($value === true) {
         return 'true';
     }
@@ -17,7 +17,7 @@ function formatterOfType(array|string|bool|null|int $value): string
     if ($value === false) {
         return 'false';
     }
-    
+
     if ($value === null) {
         return 'null';
     }
