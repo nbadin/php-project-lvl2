@@ -2,9 +2,6 @@
     "name": "hexlet/code",
     "description": "Compare two json or yaml files",
     "autoload": {
-        "psr-4": {
-            "Differ\\": "src/"
-        },
         "files": [
             "src/Differ.php",
             "src/GenerateAst.php",
