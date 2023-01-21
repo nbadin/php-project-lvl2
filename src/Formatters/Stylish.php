@@ -2,7 +2,7 @@
 
 namespace Differ\Formatters\Sylish;
 
-function stylish($ast, $depth = 0): string
+function stylish(array $ast, int $depth = 0): string
 {
     $statuses = [
         'added' => '  + ',
@@ -64,7 +64,7 @@ function stylish($ast, $depth = 0): string
     return implode("\n", ['{', ...$result, "{$indent}}"]);
 }
 
-function renderValue($value)
+function renderValue(bool|null $value): string
 {
     if ($value === true) {
         return 'true';

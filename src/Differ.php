@@ -7,7 +7,7 @@ use function Differ\getAst;
 use function Differ\Formatters\Sylish\stylish;
 use function Differ\Formatters\Plain\plain;
 
-function gendiff($firstFilepath, $secondFilepath, $format = 'stylish')
+function gendiff(string $firstFilepath, string $secondFilepath, string $format = 'stylish'): string
 {
     $firstFileContent = parser($firstFilepath);
     $secondFileContent = parser($secondFilepath);

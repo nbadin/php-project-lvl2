@@ -5,7 +5,7 @@ namespace Differ\Parser;
 use InvalidArgumentException;
 use Symfony\Component\Yaml\Yaml;
 
-function parser($filePath)
+function parser(string $filePath): array
 {
     $partsOfPath = explode('.', $filePath);
     $ext = end($partsOfPath);

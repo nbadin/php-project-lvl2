@@ -2,7 +2,7 @@
 
 namespace Differ;
 
-function getAst($firstFile, $secondFile)
+function getAst(array $firstFile, array $secondFile): array
 {
     $allKeys = array_values(array_unique([...array_keys($firstFile), ...array_keys($secondFile)]));
     asort($allKeys);

@@ -2,7 +2,7 @@
 
 namespace Differ\Formatters\Plain;
 
-function formatterOfType($value)
+function formatterOfType(array|string|bool|null $value): string
 {
     if (is_array($value)) {
         return '[complex value]';
@@ -26,7 +26,7 @@ function formatterOfType($value)
     return $value;
 }
 
-function getDiffInString($ast, $parents = [])
+function getDiffInString(array $ast, array $parents = []): array
 {
     $diff = array_filter($ast, fn($item) => $item['status'] !== 'equal');
     return array_map(function ($item) use ($parents) {
@@ -53,7 +53,7 @@ function getDiffInString($ast, $parents = [])
     }, $diff);
 }
 
-function plain($ast)
+function plain($ast): string
 {
     return implode("\n", getDiffInString($ast));
 }
