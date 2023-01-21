@@ -8,6 +8,10 @@ function formatterOfType(array|string|bool|null $value): string
         return '[complex value]';
     }
 
+    if (is_integer($value)) {
+        return $value;
+    }
+
     if (gettype($value) === 'string') {
         return "'{$value}'";
     }
