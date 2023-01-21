@@ -2,8 +2,9 @@
 
 namespace Tests\Differ;
 
-use function Differ\Differ\gendiff;
 use PHPUnit\Framework\TestCase;
+
+use function Differ\Differ\gendiff;
 
 class GendiffTest extends TestCase
 {
@@ -20,9 +21,24 @@ class GendiffTest extends TestCase
 
     public function testGendiff(): void
     {
-        $this->assertEquals($this->stylish, gendiff('./tests/fixtures/firstFile.json', './tests/fixtures/secondFile.json'));
-        $this->assertEquals($this->plain, gendiff('./tests/fixtures/firstFile.json', './tests/fixtures/secondFile.json', 'plain'));
-        $this->assertEquals($this->stylish, gendiff('./tests/fixtures/firstFile.yaml', './tests/fixtures/secondFile.yml'));
-        $this->assertEquals($this->json, gendiff('./tests/fixtures/firstFile.yaml', './tests/fixtures/secondFile.yml', 'json'));
+        $this->assertEquals($this->stylish, gendiff(
+            './tests/fixtures/firstFile.json',
+            './tests/fixtures/secondFile.json'
+        ));
+
+        $this->assertEquals($this->plain, gendiff(
+            './tests/fixtures/firstFile.json',
+            './tests/fixtures/secondFile.json',
+            'plain'
+        ));
+        $this->assertEquals($this->stylish, gendiff(
+            './tests/fixtures/firstFile.yaml',
+            './tests/fixtures/secondFile.yml'
+        ));
+        $this->assertEquals($this->json, gendiff(
+            './tests/fixtures/firstFile.yaml',
+            './tests/fixtures/secondFile.yml',
+            'json'
+        ));
     }
 }
