@@ -2,20 +2,14 @@
 
 namespace Differ\Formatters\Plain;
 
-function formatterOfType(array|string|bool|null $value): string
+use function Functional\retry;
+
+function formatterOfType(array|string|bool|null|int $value): string
 {
     if (is_array($value)) {
         return '[complex value]';
     }
-
-    if (is_integer($value)) {
-        return $value;
-    }
-
-    if (gettype($value) === 'string') {
-        return "'{$value}'";
-    }
-
+    
     if ($value === true) {
         return 'true';
     }
@@ -23,10 +17,15 @@ function formatterOfType(array|string|bool|null $value): string
     if ($value === false) {
         return 'false';
     }
-
+    
     if ($value === null) {
         return 'null';
     }
+
+    if (gettype($value) === 'string') {
+        return "'{$value}'";
+    }
+
     return $value;
 }
 
