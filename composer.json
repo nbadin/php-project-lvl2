@@ -6,7 +6,7 @@
             "Differ\\": "src/"
         },
         "files": [
-            "src/Gendiff.php",
+            "src/Differ.php",
             "src/GenerateAst.php",
             "src/Parser.php",
             "src/Formatters/Stylish.php",
