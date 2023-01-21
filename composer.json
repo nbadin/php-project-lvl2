@@ -1,6 +1,7 @@
 {
     "name": "hexlet/code",
     "description": "Compare two json or yaml files",
+    "bin": ["bin/gendiff"],
     "autoload": {
         "files": [
             "src/Differ.php",
