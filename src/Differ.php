@@ -23,4 +23,5 @@ function gendiff(string $firstFilepath, string $secondFilepath, string $format =
     if ($format === 'json') {
         return json_encode($gendiff, JSON_PRETTY_PRINT);
     }
+    return '';
 }
