@@ -2,10 +2,12 @@
 
 namespace Differ;
 
+use function Functional\sort;
+
 function getAst(array $firstFile, array $secondFile): array
 {
     $allKeys = array_values(array_unique([...array_keys($firstFile), ...array_keys($secondFile)]));
-    asort($allKeys);
+    $sortedKeys = sort($allKeys, fn ($left, $right) => strcmp($left, $right));
     return array_map(function ($key) use ($firstFile, $secondFile) {
         if (!array_key_exists($key, $firstFile)) {
             $value = is_array($secondFile[$key])
@@ -51,5 +53,5 @@ function getAst(array $firstFile, array $secondFile): array
             ];
         }
         return ['key' => $key, 'status' => 'equal', 'value' => $firstFile[$key]];
-    }, $allKeys);
+    }, $sortedKeys);
 }
