@@ -56,7 +56,7 @@ function getDiffInString(array $ast, array $parents = []): array
     }, $diff);
 }
 
-function plain($ast): string
+function plain(array $ast): string
 {
     return implode("\n", getDiffInString($ast));
 }
